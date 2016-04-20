@@ -19,8 +19,8 @@
     "gulp-load-plugins": "^1.2.2",
     "jasmine": "^2.4.1",
     "jshint": "^2.9.2",
-    "karma": "^0.13.22",
-    "karma-coverage": "^0.5.5",
+    "karma": "^0.13.19",
+    "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.8",
     "phantomjs": "^2.1.7"
   }

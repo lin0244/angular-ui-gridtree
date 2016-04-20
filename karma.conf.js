@@ -20,8 +20,8 @@ module.exports = function(config) {
     files: [
       
       // components
-      'build/bower_components/angular/angular.js',
-      'build/bower_components/angular-mocks/angular-mocks.js',
+      'examples/bower_components/angular/angular.js',
+      'examples/bower_components/angular-mocks/angular-mocks.js',
       
       // source files
       'build/main.js',
@@ -31,13 +31,12 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'build/bower_components'
     ],
     
     plugins: [
-      'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-phantomjs-launcher'
     ],
 
 

@@ -11,6 +11,6 @@ describe('main', function () {
     }));
 
     it('should execute', function () {
-        expect(true).toEqual(true);
+        return expect(true).toEqual(true);
     });
 });
