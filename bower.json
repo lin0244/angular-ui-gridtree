@@ -1,0 +1,25 @@
+{
+  "name": "angular-ui-gridtree",
+  "description": "An AngularJS UI component that can provide simple grid with tree without jQuery.",
+  "main": "index.js",
+  "authors": [
+    "Ethan Han <zestime@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "grid"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "build/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "^1.5.5",
+    "angular": "^1.5.5"
+  }
+}
