@@ -1,9 +1,9 @@
 
 
-var app = angular.module('ui.gridtree', []);
+let app = angular.module('ui.treegrid', []);
 
-app.constant('gridtreeConfig', {
-    rowClass : 'gridtree-row',
-    columnClass : 'gridtree-column',
-    rowHeaderClass: 'gridtree-row-header'
+app.constant('treegridConfig', {
+    rowClass : 'treegrid-row',
+    rowHeaderClass: 'treegrid-row-header',
+    columnClass : 'treegrid-column'
 });
