@@ -13,8 +13,9 @@ describe('main', () => {
     gridtreeConfig = _gridtreeConfig_;
   }));
 
-  it('should defined gridtreeConfig.', () => expect(gridtreeConfig).toBeDefined()); 
+  it('should defined gridtreeConfig.', () => expect(gridtreeConfig).toBeDefined());
+  
   it('should return a default class name of columnClass in gridtreeConfig.', 
-    () => expect(gridtreeConfig.columnClass).toEqual('gridtree-column')); 
+    () => expect(gridtreeConfig.columnClass).toEqual('gridtree-column'));
 
 });
