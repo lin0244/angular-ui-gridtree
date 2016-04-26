@@ -52,9 +52,7 @@ describe('ui.treegrid', () => {
   describe('compiled', () => {
     it('should return two li element', () => {
       var tree = createTree();
-      // console.log(tree.children('ol').children('li')[1]);
       expect(tree.children('ol').children('li').length).toEqual(2);
-      // expect(.length).toEqual(2);
     })
     
   });  

@@ -66,6 +66,23 @@ describe('RecursionHelper', () => {
       
       var grandChildren = children.find('ul').eq(0).children();
   		expect(grandChildren.length).toBe(3);
-	});
-
-})
+  	});
+    
+    it('should call the pre and post linking functions, when passed as object in the link parameter', () => {
+      link = {
+        pre: jasmine.createSpy('pre'),
+        post: jasmine.createSpy('post')
+      };
+      
+      compileTree();
+      expect(link.pre).toHaveBeenCalled();
+      expect(link.post).toHaveBeenCalled();
+    });
+    
+    it('should call the post linking funciton, when passed as function in the link parameter', () => {
+      link = jasmine.createSpy('post');
+      
+      compileTree();
+      expect(link).toHaveBeenCalled();
+    });
+});
