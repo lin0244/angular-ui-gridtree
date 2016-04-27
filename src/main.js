@@ -1,6 +1,6 @@
 
 
-let app = angular.module('ui.treegrid', []);
+let app = angular.module('ui.treegrid', ['RecursionHelper']);
 
 app.constant('treegridConfig', {
     rowClass : 'treegrid-row',

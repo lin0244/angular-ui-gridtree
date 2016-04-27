@@ -24,6 +24,7 @@ module.exports = function(config) {
       'examples/bower_components/angular-mocks/angular-mocks.js',
       
       // source files
+      'build/services/recursiveHelper.js',
       'build/main.js',
       'build/**/*.js'
     ],

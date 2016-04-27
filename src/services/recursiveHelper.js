@@ -26,7 +26,10 @@ angular.module('RecursionHelper', [])
         /**
          * Compiles and re-adds the contents
          */
-        post : (scope, element, ...args) => {
+        post : (...args) => {
+          let scope = args[0];
+          let element = args[1];
+          
           // Compile the contents
           if (!compiledContents) {
             compiledContents = $compile(contents);
@@ -36,7 +39,7 @@ angular.module('RecursionHelper', [])
           
           // Call the post-linking function, if any
           if (link && link.post) {
-            link.post.apply(null, [scope, element].concat(args));
+            link.post.apply(null, args);
           }
         }
       }

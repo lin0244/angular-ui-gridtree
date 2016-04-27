@@ -12,27 +12,35 @@ describe('ui.treegrid', () => {
     config = treegridConfig;
 
     scope = $rootScope;
-    scope.data = [
-      {
-        caption: 'first',
+    scope.data = {
+      title: 'root',
+      nodes: [{
+        title: 'first',
         nodes: []
       },
       {
-        caption: 'second has children',
+        title: 'second has children',
         nodes: [
           {
-            caption: 'sub-1',
+            title: 'sub-1',
             nodes: []
           },
           {
-            caption: 'sub-2',
+            title: 'sub-2',
+            nodes: []
+          },
+          {
+            title: 'sub-3',
             nodes: []
           }
         ]
-      }
-    ];
+      },
+      {
+        title: 'third'
+      }]
+    };
     
-    element = angular.element('<div ui-treegrid="options"></div>');
+    element = angular.element('<div ui-treegrid="options" ng-model="data"></div>');
         
   }));
   
@@ -50,9 +58,14 @@ describe('ui.treegrid', () => {
   });
   
   describe('compiled', () => {
-    it('should return two li element', () => {
+    xit('should return all <li> elements', () => {
       var tree = createTree();
-      expect(tree.children('ol').children('li').length).toEqual(2);
+      
+      console.log(tree);
+      
+      expect(tree.children('li').children().eq(0).text()).toEqual('root');
+      expect(tree.find('li').length).toEqual(5);
+      expect(tree.find('ul').length).toEqual(5);
     })
     
   });  

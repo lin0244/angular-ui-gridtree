@@ -5,12 +5,14 @@ This is designed for simple grid, not like *ng-grid*. And small amount of data i
 
 
 ## TO-DO
-- run unit testing by gulp
-- add task for visul studio code
+- display tree
+- folding
+- dragging
 - linting by jslint, jscs
 
 - run unit testing by karma
 - list up files
+- run unit testing by gulp
 
 
 ## Dvelopment Setting

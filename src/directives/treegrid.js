@@ -1,15 +1,19 @@
 let app = angular.module('ui.treegrid');
 
-app.directive('uiTreegrid', ['treegridConfig', (treegridConfig) => {
+app.directive('uiTreegrid', ['treegridConfig', 'RecursionHelper', (treegridConfig, RecursionHelper) => {
   
   let directive = {
-    restrict: 'A',
-    scope: true,
-    controller: () => {},
-    template: '<ol><li ng-repeat="item in data">{{item.caption}}</li></ol>',
-    link: (scope, element, attrs, ctrl) => {
-      
-    }
+    restrict: 'EA',
+    scope: {
+      data : '=ngModel'
+    },
+    template: () =>  
+        '<div class="treenode">' +
+        '  <ui-treenode ng-model="data"></ui-treenode>' +
+        '  <ui-treerecur ng-model="data"></ui-treerecur>' +
+        '</div>'
+    //     ,
+    // compile: (element) => RecursionHelper.compile(element, null)
   };
   
   return directive;
