@@ -15,6 +15,9 @@ app.directive('uiTreenode', ['treegridConfig', '$parse', (treegridConfig, $parse
     },
     link: (scope, element, attrs, ctrl) => {
       scope.collapse = false; // default
+      element.on('click', e => {
+        scope.collapse = !scope.collapse;
+      });
     }
   };
   

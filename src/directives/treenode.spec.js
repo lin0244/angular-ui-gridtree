@@ -4,6 +4,9 @@ describe('ui.treegrid.treenode', () => {
 
   var scope, $compile, element;
   var config;
+  var data = {
+    title : "test_sample"
+  }
 
   beforeEach(module('ui.treegrid'));
 
@@ -11,9 +14,7 @@ describe('ui.treegrid.treenode', () => {
     $compile = _$compile_;
 
     scope = $rootScope;
-    scope.data = {
-      title: "test_sample"
-    }
+    scope.data = data;
     element = $compile('<ui-treenode ng-model="data"></div>')(scope);
     scope.$digest();
   }));
@@ -21,11 +22,20 @@ describe('ui.treegrid.treenode', () => {
   
   describe('', () => {
     it('should return a given sample text', () => {
-      expect(element.html()).toContain("test_sample");
+      expect(element.html()).toContain(data.title);
       
-      var isolatedScope = element.isolateScope()
-      console.log(isolatedScope.collapse);
-      console.log(element.find('div.ng-hide'));
+      var isolatedScope = element.isolateScope();
+      expect(isolatedScope.collapse).toBeFalsy();
+      
+      element.triggerHandler('click');
+      scope.$digest();
+      
+      expect(isolatedScope.collapse).toBeTruthy();
+
+      element.triggerHandler('click');
+      scope.$digest();
+      
+      expect(isolatedScope.collapse).toBeFalsy();
     });
   });
   
