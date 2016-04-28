@@ -3,6 +3,7 @@
 
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
+    broswerSync = require('browser-sync').create(),
     karma = require('karma');
 
 gulp.task('scripts:compile', 
@@ -13,6 +14,23 @@ gulp.task('scripts:compile',
 gulp.task('watch:scripts:compile',
   gulp.series('scripts:compile', 
     () => gulp.watch(['./src/**/*.js'], gulp.series('scripts:compile'))));
+
+
+// browser
+gulp.task('examples', () => { 
+  broswerSync.init({
+    notify : true,
+    port : 8080,
+    server: {
+      baseDir: ["examples"],
+      routes: {
+        '/build' : 'build'
+      }
+    }
+  });
+  
+  gulp.watch('./examples/index.html', broswerSync.reload);
+})
 
 // testing
 gulp.task('test:spec', () => {
