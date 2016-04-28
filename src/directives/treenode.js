@@ -9,7 +9,7 @@ app.directive('uiTreenode', ['treegridConfig', '$parse', (treegridConfig, $parse
       data: '=ngModel'
     },
     transclude: true,
-    template: () => `<div class="${treegridConfig.rowClass}" ng-click="visibleHandler()">
+    template: () => `<div class="${treegridConfig.rowClass}" ng-click="visibleHandler($event)">
                        {{ data.title }}
                        <div ng-hide="collapse">
                          <ng-transclude></ng-transclude>
@@ -20,10 +20,10 @@ app.directive('uiTreenode', ['treegridConfig', '$parse', (treegridConfig, $parse
     },
     link: (scope, element, attrs, ctrl) => {
       scope.collapse = false;
-      scope.visibleHandler = () => {
+      scope.visibleHandler = (e) => {
+        e.stopPropagation();
         scope.collapse = !scope.collapse;
       };
-
     }
   };
   

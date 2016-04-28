@@ -8,10 +8,11 @@ app.directive('uiTreegrid', ['treegridConfig', 'RecursionHelper', (treegridConfi
       data : '=ngModel'
     },
     controller: $scope => {
-      console.log($scope);
+      if (!angular.isArray($scope.data)){
+        $scope.data = {nodes:[$scope.data]};
+      }
     },
     template: `<div class="treenode">
-                 <ui-treenode ng-model="data"></ui-treenode>
                  <ui-treerecur ng-model="data"></ui-treerecur>
                </div>`
   };
