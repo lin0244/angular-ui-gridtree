@@ -2,18 +2,28 @@
 <head>
   <title>treegrid build page</title>
 </head>
-<body>
+<body ng-controller="mainCtrl">
   <div class="container">
     <div class="header"><h1>TreeGrid</h1></div>
     
-    <div class="content" ng-controller="mainCtrl as mc">
-      <div treegrid="mc.option"></div>
+    <div class="content">
+      {{ mc.data }}
+      <div ui-treegrid="options" ng-model="data"></div>
     </div>
-    
+    <div class="footer" ng-show="visible">
+      Wow It's working well....
+    </div>
   </div>
   
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="main.js"> </script> 
+  <script src="./bower_components/angular/angular.js"></script>
+  
+  <script src="./build/main.js"></script>
+  <script src="./build/directives/treegrid.js"></script>
+  <script src="./build/directives/treenode.js"></script>
+  <script src="./build/directives/treerecur.js"></script>
+  <script src="./build/services/recursiveHelper.js"></script>
+  
+  <script src="app.js"> </script> 
   
 </body>
 </html>

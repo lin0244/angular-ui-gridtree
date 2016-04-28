@@ -18,7 +18,9 @@ gulp.task('watch:scripts:compile',
 
 // browser
 gulp.task('examples', () => { 
-  broswerSync.init({
+  var watchList = ['./examples/index.html', './examples/*.js'];
+  
+  broswerSync.init(watchList,{
     notify : true,
     port : 8080,
     server: {
@@ -27,10 +29,8 @@ gulp.task('examples', () => {
         '/build' : 'build'
       }
     }
-  });
-  
-  gulp.watch('./examples/index.html', broswerSync.reload);
-})
+  }); 
+});
 
 // testing
 gulp.task('test:spec', () => {
