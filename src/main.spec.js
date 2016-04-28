@@ -58,14 +58,11 @@ describe('ui.treegrid', () => {
   });
   
   describe('compiled', () => {
-    xit('should return all <li> elements', () => {
+    it('should return all <li> elements', () => {
       var tree = createTree();
-      
-      console.log(tree);
-      
       expect(tree.children('li').children().eq(0).text()).toEqual('root');
-      expect(tree.find('li').length).toEqual(5);
-      expect(tree.find('ul').length).toEqual(5);
+      expect(tree.find('li').length).toEqual(6);
+      expect(tree.find('ul').length).toEqual(2);
     })
     
   });  
