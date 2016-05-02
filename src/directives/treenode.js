@@ -20,10 +20,16 @@ app.directive('uiTreenode', ['treegridConfig', '$parse', (treegridConfig, $parse
     },
     link: (scope, element, attrs, ctrl) => {
       scope.collapse = false;
+      
+      // only working by element.on() in karma
       scope.visibleHandler = (e) => {
         e.stopPropagation();
         scope.collapse = !scope.collapse;
       };
+      element.on('click', (e) => {
+        e.stopPropagation();
+        scope.collapse = !scope.collapse;        
+      })
     }
   };
   

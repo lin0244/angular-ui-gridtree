@@ -57,12 +57,12 @@ describe('ui.treegrid', () => {
       () => expect(config.columnClass).toEqual('treegrid-column'));    
   });
   
-  describe('compiled', () => {
+  describe('compiled then,', () => {
     it('should return all <li> elements', () => {
       var tree = createTree();
-      expect(tree.children('li').children().eq(0).text()).toEqual('root');
-      expect(tree.find('li').length).toEqual(6);
-      expect(tree.find('ul').length).toEqual(2);
+      expect(tree.text()).toContain('root');
+      expect(tree.find('li').length).toEqual(7);
+      expect(tree.find('ul').length).toEqual(3);
     })
     
   });  
