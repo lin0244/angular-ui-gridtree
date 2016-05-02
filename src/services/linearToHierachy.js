@@ -1,10 +1,16 @@
 
 let app = angular.module('ui.treegrid');
 
-app.factory('LinearToHierachy', () => {
-  let id = 10;
-  return {
-    id
-  };
-});
+class LinearToHierachy{
+
+  constructor() {
+    this.id = 10;
+  }
+    
+  toHierachy(linear){
+    return [];
+  }  
+}
+
+app.factory('LinearToHierachy', () => new LinearToHierachy());
  
